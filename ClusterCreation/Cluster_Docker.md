@@ -100,6 +100,8 @@ systemctl daemon-reload
 
 
 # Initialising the control-plane node run the below command on the (master node)
+rm /etc/containerd/config.toml
+systemctl restart containerd
 sudo kubeadm init
 
 # If we get error wrt container runtime not running , execute the below commands
