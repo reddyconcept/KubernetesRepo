@@ -3,6 +3,10 @@
 gcloud compute instances create master worker-1 worker-2 --create-disk=auto-delete=yes,boot=yes,image=projects/ubuntu-os-cloud/global/images/ubuntu-1804-bionic-v20211115 --zone us-central1-a --machine-type=e2-medium
 ```
 
+### AWS commands to create 3 vms for the cluster
+```shell
+aws ec2 run-instances --image-id ami-ID --count 3 --instance-type t2.micro --key-name MyKeyPair --security-group-ids sg-ID --subnet-id subnet-ID --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=master}]' 'ResourceType=instance,Tags=[{Key=Name,Value=worker1}]' 'ResourceType=instance,Tags=[{Key=Name,Value=worker2}]'
+```
 
 ### To Create a User in Ubuntu follow the below steps:
 ```bash
